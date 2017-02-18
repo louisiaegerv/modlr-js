@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="app"></div>
+	<div>
+		<textarea class="code" name="" id="" cols="80" rows="24">
+(function () {
+	let myModule = {
+		name: "",
+		setName() {
+			let name = prompt("What is your name?");
+			this.name = name;
+			if (name === "") this.setName();
+		}, 
+		showGreeting() {
+			return `<h1>Hello ${this.name}, this text was generated with modular JavaScript.</h1>`;
+		},
+		init() {
+			myModule.setName();
+			app = document.querySelector('.app');
+			app.innerHTML = myModule.showGreeting();
+		}
+	};
+	
+	myModule.init();
+})();
+		</textarea>
+	</div>
+	<script src="app.js"></script>
+</body>
+</html>
